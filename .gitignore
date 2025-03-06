@@ -22,3 +22,6 @@ Thumbs.db
 
 # Configuración de ambiente (si usas variables de entorno)
 .env
+
+# Carpetas
+Ejemplo_Borrar/

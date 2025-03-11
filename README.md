@@ -58,7 +58,7 @@ Principios SOLID Aplicados
 
 Diagrama de clases para la solución del problema 04
 
-![Diagrama_Clases](src/04.Problema_04/Diagrama_clases/Class_diagram_problem_04.drawio.png)
+![Diagrama_Clases](Patrones_Diseno/src/04.Problema_04/Diagrama_clases/Class_diagram_problem_04.drawio.png)
 
 # Problema 5 ==> Decoración de Habitaciones en un Hotel
 

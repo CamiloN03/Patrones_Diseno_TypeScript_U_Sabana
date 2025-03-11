@@ -24,11 +24,11 @@ Aplicación del Patrón:
 
 Análisis de SOLID en la Implementación
 
-Esta implementación del Gestor de Tareas con el Patrón Command sigue los principios SOLID, garantizando un código limpio, modular y escalable.
+Esta implementación del gestor de tareas con el patrón Command sigue los principios SOLID, garantizando un código limpio, modular y escalable.
 
 Principios SOLID Aplicados
 
-    S - Principio de Responsabilidad Única (SRP)
+    S - Principio de responsabilidad única (SRP)
 
         Cada clase tiene una única responsabilidad:
 
@@ -36,22 +36,22 @@ Principios SOLID Aplicados
         CreateTaskCommand, EditTaskCommand, DeleteTaskCommand, CompleteTaskCommand → Cada una encapsula una sola acción sobre una tarea.
         TaskManager → Se encarga solo de ejecutar y deshacer comandos.
 
-    O - Principio de Abierto/Cerrado (OCP)
+    O - Principio de abierto/cerrado (OCP)
 
         Se pueden agregar nuevas operaciones sin modificar el código existente.
 
         Si mañana necesitamos un nuevo comando (AssignUserCommand, SetPriorityCommand), solo agregamos una nueva clase sin tocar las demás.
         TaskManager no necesita saber qué comandos existen, solo los ejecuta.
 
-    L - Principio de Sustitución de Liskov (LSP)
+    L - Principio de sustitución de liskov (LSP)
 
         ITaskCommand define una interfaz clara (execute() y undo()), y todas las clases de comandos la implementan sin romper la funcionalidad.
 
-    I - Principio de Segregación de Interfaces (ISP)
+    I - Principio de segregación de interfaces (ISP)
 
         ITaskCommand es una interfaz específica y simple, con solo los métodos que cada comando necesita (execute() y undo()).
 
-    D - Principio de Inversión de Dependencias (DIP)
+    D - Principio de inversión de dependencias (DIP)
 
         TaskManager depende de una abstracción (ITaskCommand) en lugar de implementaciones concretas.
         Esto permite intercambiar comandos sin modificar TaskManager.

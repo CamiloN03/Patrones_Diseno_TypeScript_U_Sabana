@@ -1,19 +1,24 @@
 import { NewDigitalPaymentAdapter } from "./adapters/NewDigitalPaymentAdapter";
-import { CreditCardController } from "./controllers/CreditCardController";
-import { PayPalController } from "./controllers/PayPalController";
+import { CreditCardService } from "./services/CreditCardService";
+import { PayPalService } from "./services/PayPalService";
 import { NewDigitalPaymentSystem } from "./new-digital-payment-system/NewDigitalPaymentSystem";
 import { printBanner } from "./utils/utils";
+import { IPayment } from "./interfaces/IPayment";
 
 
 printBanner();
 
-const creditCardPayment = new CreditCardController();
-const paypalPayment = new PayPalController();
+function payNow(paymentMethod: IPayment, amount: number) {
+  paymentMethod.executePayment(amount);
+}
+
+const creditCardPayment = new CreditCardService();
+const paypalPayment = new PayPalService();
 
 const newPaymentSystem = new NewDigitalPaymentSystem();
 const newPaymentAdapter = new NewDigitalPaymentAdapter(newPaymentSystem);
 
 
-creditCardPayment.executePayment(100);
-paypalPayment.executePayment(200);
-newPaymentAdapter.executePayment(300);
+payNow(creditCardPayment, 100000);
+payNow(paypalPayment, 150000);
+payNow(newPaymentAdapter, 63000);

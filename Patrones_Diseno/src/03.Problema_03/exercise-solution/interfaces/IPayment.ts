@@ -1,3 +1,3 @@
-export interface PaymentController {
+export interface IPayment {
   executePayment(amount: number): void;
 }

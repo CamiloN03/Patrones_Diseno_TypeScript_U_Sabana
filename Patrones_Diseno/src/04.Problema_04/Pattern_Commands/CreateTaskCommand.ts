@@ -1,6 +1,7 @@
-import { logColor } from "../../utils/colors";
-import { Task } from "../Models/Task";
-import { ITaskCommand } from "./ITaskCommand";
+import { logColor } from '../../utils/colors';
+import { formatTaskLog } from '../utils/logUtils';
+import { Task } from '../Models/Task';
+import { ITaskCommand } from './ITaskCommand';
 
 export class CreateTaskCommand implements ITaskCommand {
   private taskList: Task[];
@@ -13,14 +14,11 @@ export class CreateTaskCommand implements ITaskCommand {
 
   execute(): void {
     this.taskList.push(this.task);
-    logColor(`Tarea creada: ${this.task.id} ${this.task.title}`, "bgGreen");
+    logColor(`Tarea creada: ${formatTaskLog(this.task)}`, 'bgGreen');
   }
 
   undo(): void {
     this.taskList.pop();
-    logColor(
-      `Se ha deshecho la creación de la tarea: ${this.task.id} ${this.task.title}`,
-      "bgYellow"
-    );
+    logColor(`Se ha deshecho la creación de la tarea: ${formatTaskLog(this.task)}`, 'bgYellow');
   }
 }

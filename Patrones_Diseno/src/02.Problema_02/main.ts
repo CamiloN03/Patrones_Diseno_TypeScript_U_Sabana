@@ -1,6 +1,8 @@
 import { ServicioMensajeria } from "./Aplicacion/ServicioMensajeria";
-import { Dispositivo } from "./Dominio/Dispositivo";
-import { Notificaciones } from "./Dominio/Notificaciones";
+import { Dispositivos } from "./Dominio/Dispositivos";
+import { Notificaciones } from "./Aplicacion/Notificaciones";
+import { Usuario } from "./Dominio/Usuarios";
+import { GestorUsuarios } from "./Aplicacion/GestorUsuariosDispositivos";
 
 console.log(`
     ═════════════════════════════════════════════════
@@ -16,10 +18,21 @@ console.log(`
 
 const notificaciones = new Notificaciones();
 const servicioMensajeria = new ServicioMensajeria(notificaciones);
+const gestorUsuarios = new GestorUsuarios();
 
-const cassian = new Dispositivo(101, "Cassian");
-const ares = new Dispositivo(102, "Ares");
-const los_shinobi= new Dispositivo(102, "Los shinobi");
+
+const cassian = new Usuario(1, "Cassian");
+const ares = new Usuario(2, "Ares");
+const los_shinobi = new Usuario(2, "Los shinobi");
+
+
+gestorUsuarios.agregarDispositivo(cassian,101, "Celular de Cassian");
+gestorUsuarios.agregarDispositivo(cassian,102, "Laptop de Cassian");
+gestorUsuarios.agregarDispositivo(cassian,103, "Tablet de Cassian");
+gestorUsuarios.agregarDispositivo(ares, 104, "Celular de Ares");
+gestorUsuarios.agregarDispositivo(los_shinobi, 105, "Celular de Shinobi 1");
+gestorUsuarios.agregarDispositivo(los_shinobi,106, "Celular de Shinobi 2");
+
 
 notificaciones.agregar(cassian);
 notificaciones.agregar(ares);

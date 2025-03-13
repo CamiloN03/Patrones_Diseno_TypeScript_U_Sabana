@@ -2,5 +2,5 @@ import { Mensaje } from "./Mensaje";
 
 // Interfaz para los observadores (dispositivos)
 export interface IObservador {
-  emitirMensaje(mensaje: Mensaje): void;
+  escucharMensaje(usuario:string,mensaje: Mensaje): void;
 }

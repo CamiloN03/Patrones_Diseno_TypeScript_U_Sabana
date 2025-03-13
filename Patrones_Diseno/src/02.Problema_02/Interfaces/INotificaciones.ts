@@ -1,8 +1,8 @@
+import { Usuario } from "../Dominio/Usuarios";
 import { Mensaje } from "./Mensaje";
-import { IObservador } from "./IObservador";
 
 export interface INotificaciones {
-    agregar(observador: IObservador): void;
-    eliminar(observador: IObservador): void;
-    notificar(mensaje: Mensaje): void;
+    agregar(usuario: Usuario): void;
+    eliminar(observador: Usuario): void;
+    notificar(usuario: Usuario, mensaje: Mensaje): void;
 }

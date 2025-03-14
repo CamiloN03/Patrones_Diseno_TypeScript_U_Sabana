@@ -8,8 +8,9 @@
     "build": "tsc",
     "start": "node dist/Ejemplo/index.js",
     "dev": "ts-node src/Ejemplo/index.ts",
-    "Problem_04": "ts-node src/04.Problema_04/main.ts",
-    "Problem_02": "ts-node src/02.Problema_02/main.ts"
+    "Problem_02": "ts-node src/02.Problema_02/main.ts",
+    "Problem_03": "ts-node src/03.Problema_03/exercise-solution/index.ts",
+    "Problem_04": "ts-node src/04.Problema_04/main.ts"
   },
   "keywords": [],
   "author": "",

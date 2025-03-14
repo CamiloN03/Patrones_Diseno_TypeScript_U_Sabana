@@ -6,7 +6,20 @@ Repositorio creado para el aprendizaje de patrones de diseño en arquitectura de
 
 # Problema 2 ==> Desarrollando de aplicación de mensajería
 
-# Problema 3 ==> Integración de un Sistema de Pago Externo
+# Problema 3 💳  Integración de un Sistema de Pago Externo
+
+Contexto:
+
+    Imagina que estás desarrollando una plataforma de comercio electrónico y deseas ofrecer a tus clientes múltiples opciones de pago, incluyendo tarjetas de crédito, PayPal y un nuevo sistema de pago digital que acaba de ser lanzado. Sin embargo, este nuevo sistema de pago tiene una interfaz incompatible con tu plataforma existente, lo que dificulta su integración
+
+Aplicación del Patrón:
+
+    En este escenario, el patrón será aplicado para encapsular cada una de las acciones que el usuario puede realizar sobre una tarea.
+    El patrón que seleccione debe tener los siguientes beneficios:
+        ● Desacopla el invocador de los objetos que realizan las acciones.
+        ● Permite la extensión de nuevas operaciones sin modificar el código existente.
+        ● Facilita el registro de acciones para realizar operaciones de reversión.
+
 
 # Problema 4 ==> Sistema de Gestión de Tareas
 
@@ -66,10 +79,10 @@ Diagrama de clases para la solución del problema 04
 
 Este proyecto fue desarrollado por:
 
-| Nombre           | GitHub                                     |
-| ---------------- | ------------------------------------------ |
-| Camilo Navarrete | [@CamiloN03](https://github.com/CamiloN03) |
-| [Nombre]         | [@TuGitHub](https://github.com/TuGitHub)   |
-| [Nombre]         | [@TuGitHub](https://github.com/TuGitHub)   |
-| [Nombre]         | [@TuGitHub](https://github.com/TuGitHub)   |
-| [Nombre]         | [@TuGitHub](https://github.com/TuGitHub)   |
+| Nombre             | GitHub                                                         |
+| ------------------ | -------------------------------------------------------------- |
+| Camilo Navarrete   | [@CamiloN03](https://github.com/CamiloN03)                     |
+| Cristian Melgarejo | [@CristianMelgarejo94](https://github.com/CristianMelgarejo94) |
+| [Nombre]           | [@TuGitHub](https://github.com/TuGitHub)                       |
+| [Nombre]           | [@TuGitHub](https://github.com/TuGitHub)                       |
+| [Nombre]           | [@TuGitHub](https://github.com/TuGitHub)                       |

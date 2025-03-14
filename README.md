@@ -24,6 +24,25 @@ Con este enfoque, logramos mayor flexibilidad y mantenibilidad en el sistema, fa
 
 ![Diagrama_Clases](Patrones_Diseno/src/03.Problema_03/class-diagram/class_diagram_03.png)
 
+### 🚀 Instrucciones para ejecutar el proyecto
+
+1. Asegúrate de estar en la raíz del proyecto. Luego, ingresa a la carpeta del proyecto con:
+   ```sh
+   cd Patrones_Diseno/
+   ```
+
+2. Instala las dependencias ejecutando:
+   ```sh
+   npm install
+   ```
+
+3. Una vez completada la instalación, ejecuta el siguiente comando para correr el problema 03:
+   ```sh
+   npm run Problem_03
+   ```
+
+🎉 ¡Y listo! Ahora el problema 03 estará corriendo en tu máquina.
+
 
 # Problema 4 ==> Sistema de Gestión de Tareas
 

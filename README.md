@@ -22,7 +22,7 @@ Con este enfoque, logramos mayor flexibilidad y mantenibilidad en el sistema, fa
 
 ### Diagrama de clases
 
-![Diagrama_Clases](Patrones_Diseno\src\03.Problema_03\class-diagram\class_diagram_03.png)
+![Diagrama_Clases](Patrones_Diseno/src/03.Problema_03/class-diagram/class_diagram_03.png)
 
 
 # Problema 4 ==> Sistema de Gestión de Tareas

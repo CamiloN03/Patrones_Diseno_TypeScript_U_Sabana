@@ -10,7 +10,8 @@ export class NewDigitalPaymentAdapter implements IPayment {
   }
 
   executePayment(amount: number): void {
+    const amountString = amount.toString();
     logColor(`Realizando pago atraves del adapter...`, 'cyan');
-    this.newPaymentSystem.makePayment(amount);
+    this.newPaymentSystem.makePayment(amountString);
   }
 }

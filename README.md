@@ -8,17 +8,21 @@ Repositorio creado para el aprendizaje de patrones de diseño en arquitectura de
 
 # Problema 3 💳  Integración de un Sistema de Pago Externo
 
-Contexto:
+### Contexto:
 
-    Imagina que estás desarrollando una plataforma de comercio electrónico y deseas ofrecer a tus clientes múltiples opciones de pago, incluyendo tarjetas de crédito, PayPal y un nuevo sistema de pago digital que acaba de ser lanzado. Sin embargo, este nuevo sistema de pago tiene una interfaz incompatible con tu plataforma existente, lo que dificulta su integración
+Imagina que estás desarrollando una plataforma de comercio electrónico y deseas ofrecer a tus clientes múltiples opciones de pago, incluyendo tarjetas de crédito, PayPal y un nuevo sistema de pago digital que acaba de ser lanzado. Sin embargo, este nuevo sistema de pago tiene una interfaz incompatible con tu plataforma existente, lo que dificulta su integración
 
-Aplicación del Patrón:
+### Aplicación del Patrón:
 
-    En este escenario, el patrón será aplicado para encapsular cada una de las acciones que el usuario puede realizar sobre una tarea.
-    El patrón que seleccione debe tener los siguientes beneficios:
-        ● Desacopla el invocador de los objetos que realizan las acciones.
-        ● Permite la extensión de nuevas operaciones sin modificar el código existente.
-        ● Facilita el registro de acciones para realizar operaciones de reversión.
+Para resolver este problema, aplicaremos el patrón de diseño Adapter, el cual permite que dos interfaces incompatibles trabajen juntas. En nuestro caso, simulamos que el nuevo sistema de pago implementa un método con una estructura diferente, lo que lo hace incompatible con el resto de las opciones de pago existentes.
+
+Para solucionar esto, crearemos un adaptador que actuará como un wrapper, encapsulando la lógica necesaria para traducir la nueva implementación a una interfaz compatible con el sistema actual. De esta manera, garantizamos una integración fluida sin afectar el código existente.
+
+Con este enfoque, logramos mayor flexibilidad y mantenibilidad en el sistema, facilitando la incorporación de futuras soluciones de pago sin alterar la lógica principal.
+
+### Diagrama de clases
+
+![Diagrama_Clases](Patrones_Diseno\src\03.Problema_03\class-diagram\class_diagram_03.png)
 
 
 # Problema 4 ==> Sistema de Gestión de Tareas

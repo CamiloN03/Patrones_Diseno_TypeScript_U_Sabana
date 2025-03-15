@@ -1,0 +1,15 @@
+[
+  {
+    "nombre": "Boris",
+    "aspectoVisual": "ser alto y delgado",
+    "experiencia": 0,
+    "nivel": 1,
+    "puntosHabilidad": 0,
+    "habilidades": [
+      "Disparo certero",
+      "Trampa",
+      "Flecha explosiva"
+    ],
+    "tipo": "Arquero"
+  }
+]

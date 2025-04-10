@@ -1,0 +1,44 @@
+name: Build and Deploy Microservice
+
+on:
+  push:
+    branches:
+      - feature/creacion_microservices
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      IMAGE_NAME: camilonr03/microservice-app
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Obtener hash corto del commit
+        id: vars
+        run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build y push de la imagen Docker
+        run: |
+          docker build -t $IMAGE_NAME:${{ env.SHORT_SHA }} .
+          docker push $IMAGE_NAME:${{ env.SHORT_SHA }}
+
+      - name: Reemplazar tag en helm/values.yaml
+        run: |
+          sed -i "s/^  tag: .*/  tag: ${{ env.SHORT_SHA }}/" helm/values.yaml
+
+      - name: Commit y push de nuevo tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add helm/values.yaml
+          git commit -m "ci: update image tag to ${{ env.SHORT_SHA }}"
+          git push

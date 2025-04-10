@@ -28,12 +28,12 @@ jobs:
 
       - name: Build y push de la imagen Docker
         run: |
-          docker build -t $IMAGE_NAME:${{ env.SHORT_SHA }} .
+          docker build -t $IMAGE_NAME:${{ env.SHORT_SHA }} MicroServicios_Poc
           docker push $IMAGE_NAME:${{ env.SHORT_SHA }}
 
       - name: Reemplazar tag en helm/values.yaml
         run: |
-          sed -i "s/^  tag: .*/  tag: ${{ env.SHORT_SHA }}/" helm/values.yaml
+          sed -i "s/^  tag: .*/  tag: ${{ env.SHORT_SHA }}/" MicroServicios_Poc/helm/values.yaml
 
       - name: Commit y push de nuevo tag
         run: |

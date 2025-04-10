@@ -36,6 +36,8 @@ jobs:
           sed -i "s/^  tag: .*/  tag: ${{ env.SHORT_SHA }}/" MicroServicios_Poc/helm/values.yaml
 
       - name: Commit y push de nuevo tag
+        env:
+          TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

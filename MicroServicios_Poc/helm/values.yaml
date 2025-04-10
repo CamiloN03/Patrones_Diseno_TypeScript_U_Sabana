@@ -1,8 +1,8 @@
 replicaCount: 4
 
 image:
-  repository: microservice-app
-  pullPolicy: IfNotPresent
+  repository: camilonr03/microservice-app
+  pullPolicy: Always
   tag: latest
 
 service:

@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/health', (req, res) => {
-  res.send('OK GitHub Actions');
+  res.send('Hola mundo desde GitHub Actions + AKS');
 });
 
 app.listen(port, () => {

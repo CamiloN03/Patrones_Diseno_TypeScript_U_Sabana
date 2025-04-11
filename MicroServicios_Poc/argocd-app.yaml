@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/CamiloN03/Patrones_Diseno_TypeScript_U_Sabana'
-    targetRevision: feature/creacion_microservices
+    targetRevision: develop
     path: MicroServicios_Poc/helm
     helm:
       valueFiles:

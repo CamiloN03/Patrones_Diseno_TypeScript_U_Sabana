@@ -3,7 +3,7 @@ name: Build and Deploy Microservice
 on:
   push:
     branches:
-      - feature/creacion_microservices
+      - develop
 
 jobs:
   build-and-deploy:
@@ -43,4 +43,4 @@ jobs:
           git config user.email "camilo03.navarrete03@gmail.com"
           git add MicroServicios_Poc/helm/values.yaml
           git commit -m "ci: update image tag to ${{ env.SHORT_SHA }}"
-          git push origin feature/creacion_microservices
+          git push origin develop

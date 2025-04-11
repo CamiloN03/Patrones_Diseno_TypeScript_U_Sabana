@@ -3,7 +3,7 @@ replicaCount: 4
 image:
   repository: camilonr03/microservice-app
   pullPolicy: Always
-  tag: 4ad88f9
+  tag: 9a7c272
 
 service:
   type: ClusterIP

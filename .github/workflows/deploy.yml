@@ -37,10 +37,13 @@ jobs:
         run: |
           sed -i "s/^  tag: .*/  tag: ${{ env.SHORT_SHA }}/" MicroServicios_Poc/helm/values.yaml
 
+      - name: Debug values.yaml
+        run: cat MicroServicios_Poc/helm/values.yaml
+
       - name: Commit y push de nuevo tag
         run: |
           git config user.name "CamiloN03"
           git config user.email "camilo03.navarrete03@gmail.com"
           git add MicroServicios_Poc/helm/values.yaml
-          git commit -m "ci: update image tag to ${{ env.SHORT_SHA }}"
+          git commit -m "ci: update image tag to ${{ env.SHORT_SHA }}" || echo "No changes to commit"
           git push origin develop

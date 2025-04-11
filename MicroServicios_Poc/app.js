@@ -3,11 +3,15 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/health', (req, res) => {
-  res.send('Hola desde health 2 replicas');
+  res.send('Running health....');
 });
 
 app.get('/hola', (req, res) => {
-  res.send('argo poc CI- CD');
+  res.send('Running hola....');
+});
+
+app.get('/chao', (req, res) => {
+  res.send('Running chao....');
 });
 
 app.listen(port, () => {

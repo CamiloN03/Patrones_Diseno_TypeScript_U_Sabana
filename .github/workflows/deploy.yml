@@ -43,5 +43,5 @@ jobs:
           git config user.email "camilo03.navarrete03@gmail.com"
           git add MicroServicios_Poc/helm/values.yaml
           git commit -m "ci: update image tag to ${{ env.SHORT_SHA }}"
-          git remote set-url origin https://CamiloN03:${TOKEN}@github.com/CamiloN03/Patrones_Diseno_TypeScript_U_Sabana.git
+          git remote set-url origin https://CamiloN03:${PERSONAL_TOKEN}@github.com/CamiloN03/Patrones_Diseno_TypeScript_U_Sabana.git
           git push origin feature/creacion_microservices

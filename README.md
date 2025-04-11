@@ -6,6 +6,54 @@ Repositorio creado para el aprendizaje de patrones de diseño en arquitectura de
 
 # Problema 2 ==> Desarrollando de aplicación de mensajería
 
+### Contexto:
+
+La empresa está desarrollando una aplicación de mensajería en tiempo real que permite
+a los usuarios comunicarse desde múltiples dispositivos. Cada vez que un usuario recibe un
+nuevo mensaje, todos los dispositivos del usuario deben ser notificados para que el
+mensaje se muestre en cada uno de ellos. Para mantener la flexibilidad y desacoplar la
+lógica de notificación de la aplicación principal.
+El patrón que escoja deberá permitir
+
+### Aplicación del Patrón:
+
+Para resolver el problema planteado, se ha seleccionado el patrón de diseño Observer, el cual permite establecer una relación de uno-a-muchos entre objetos. En este caso, la aplicación de mensajería actúa como el sujeto (publisher), y cada uno de los dispositivos del usuario funciona como un observador (subscriber).
+
+Este patrón es ideal para escenarios en los que múltiples objetos deben ser notificados automáticamente cuando ocurre un cambio de estado, sin que el emisor de la notificación tenga que conocer los detalles de los receptores
+
+Notificación en Tiempo Real:
+Cada vez que un nuevo mensaje llega, el sistema notifica automáticamente a todos los dispositivos suscritos. Estos dispositivos, al estar escuchando como observadores, reciben el mensaje en tiempo real y lo muestran al usuario.
+
+Desacoplamiento:
+La aplicación de mensajería (sujeto) no necesita conocer los detalles específicos de los dispositivos (observadores). Solo emite el mensaje, y cada dispositivo suscrito se encarga de procesarlo según su lógica interna.
+
+Flexibilidad:
+Los dispositivos pueden añadirse o eliminarse dinámicamente durante la ejecución sin necesidad de modificar la lógica central. Esta capacidad permite escalar y adaptar el sistema a nuevos requerimientos de manera sencilla y mantenible.
+
+### Diagrama de clases
+
+![Diagrama_Clases](Patrones_Diseno/src/02.Problema_02/Diagrama_clases/Diagrama_clases.png)
+
+### 🚀 Instrucciones para ejecutar el proyecto
+
+1. Asegúrate de estar en la raíz del proyecto. Luego, ingresa a la carpeta del proyecto con:
+   ```sh
+   cd Patrones_Diseno/
+   ```
+
+2. Instala las dependencias ejecutando:
+   ```sh
+   npm install
+   ```
+
+3. Una vez completada la instalación, ejecuta el siguiente comando para correr el problema 03:
+   ```sh
+   npm run Problem_02
+   ```
+
+🎉 ¡Y listo! Ahora el problema 03 estará corriendo en tu máquina.
+
+
 # Problema 3 💳  Integración de un Sistema de Pago Externo
 
 ### Contexto:
@@ -106,6 +154,6 @@ Este proyecto fue desarrollado por:
 | ------------------ | -------------------------------------------------------------- |
 | Camilo Navarrete   | [@CamiloN03](https://github.com/CamiloN03)                     |
 | Cristian Melgarejo | [@CristianMelgarejo94](https://github.com/CristianMelgarejo94) |
-| [Nombre]           | [@TuGitHub](https://github.com/TuGitHub)                       |
+| Vanessa Morales    | [@ness918](https://github.com/ness918)                       |
 | [Nombre]           | [@TuGitHub](https://github.com/TuGitHub)                       |
 | [Nombre]           | [@TuGitHub](https://github.com/TuGitHub)                       |

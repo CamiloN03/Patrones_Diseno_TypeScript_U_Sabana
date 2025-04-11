@@ -13,11 +13,12 @@ jobs:
       IMAGE_NAME: camilonr03/microservice-app
 
     steps:
-      - name: Checkout código
+      - name: Checkout con token personalizado
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
 
       - name: Obtener hash corto del commit
-        id: vars
         run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: Login a Docker Hub
@@ -36,12 +37,9 @@ jobs:
           sed -i "s/^  tag: .*/  tag: ${{ env.SHORT_SHA }}/" MicroServicios_Poc/helm/values.yaml
 
       - name: Commit y push de nuevo tag
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "CamiloN03"
           git config user.email "camilo03.navarrete03@gmail.com"
           git add MicroServicios_Poc/helm/values.yaml
           git commit -m "ci: update image tag to ${{ env.SHORT_SHA }}"
-          git remote set-url origin https://CamiloN03:${GH_PAT}@github.com/CamiloN03/Patrones_Diseno_TypeScript_U_Sabana.git
           git push origin feature/creacion_microservices

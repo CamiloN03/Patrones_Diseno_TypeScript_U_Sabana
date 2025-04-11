@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - microservicio.135.237.63.234.nip.io
+        - microservicio.51.8.47.204.nip.io
       secretName: microservicio-tls
   rules:
-    - host: microservicio.135.237.63.234.nip.io
+    - host: microservicio.51.8.47.204.nip.io
       http:
         paths:
           - path: /

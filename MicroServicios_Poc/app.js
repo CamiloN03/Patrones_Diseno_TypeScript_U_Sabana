@@ -7,7 +7,7 @@ app.get('/health', (req, res) => {
 });
 
 app.get('/hola', (req, res) => {
-  res.send('Hola desde hola');
+  res.send('CI- CD argo');
 });
 
 app.listen(port, () => {

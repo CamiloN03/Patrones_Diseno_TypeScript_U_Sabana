@@ -376,12 +376,14 @@ helm/
 
 ## Paso 18: Editar el Chart.yaml
 
+```
 apiVersion: v2
 name: helm
 description: A Helm chart for Kubernetes
 type: application
 version: 0.1.0
 appVersion: "1.16.0"
+```
 
 ## Paso 19: Configurar values.yaml
 

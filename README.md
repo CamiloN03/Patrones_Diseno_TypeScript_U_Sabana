@@ -206,6 +206,7 @@ az group create --name "<NombreGrupodeRecuso>" --location eastus
 
 ## Paso 3: Crear un clúster de AKS (bajo costo)
 
+```
 az aks create \
  --resource-group "<NombreGrupodeRecuso>" \
  --name "<NombreAKS>" \
@@ -214,6 +215,7 @@ az aks create \
  --enable-managed-identity \
  --generate-ssh-keys \
  --location eastus
+```
 
 ## Paso 4: Conectarse al clúster
 
@@ -244,6 +246,7 @@ kubectl get pods -n cert-manager
 
 ## Paso 10: Crear archivo cluster-issuer.yaml
 
+```
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -257,12 +260,14 @@ name: letsencrypt-prod
 solvers: - http01:
 ingress:
 class: nginx
+```
 
 kubectl apply -f cluster-issuer.yaml
 kubectl get clusterissuer
 
 ## Paso 11: Crear archivo ingress-microservicio.yaml
 
+```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -288,6 +293,7 @@ tls:
     name: microservice-app-helm
     port:
     number: 80
+```
 
 kubectl apply -f ingress-microservicio.yaml
 kubectl get ingress
@@ -301,6 +307,7 @@ kubectl get pods -n argocd
 
 ## Paso 13: Crear archivo argocd-ingress.yaml
 
+```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -323,6 +330,7 @@ rules:
     name: argocd-server
     port:
     number: 443
+```
 
 kubectl apply -f argocd-ingress.yaml
 
@@ -351,6 +359,8 @@ helm create helm
 ```
 
 Esto genera la siguiente estructura
+
+```
 helm/
 ├── charts/
 ├── templates/
@@ -362,6 +372,7 @@ helm/
 │ ├── tests/
 ├── Chart.yaml
 ├── values.yaml
+```
 
 ## Paso 18 Editar el Chart.yaml
 
@@ -374,6 +385,7 @@ appVersion: "1.16.0"
 
 ## Paso 19 Configurar values.yaml
 
+```
 replicaCount: 2
 
 image:
@@ -410,6 +422,7 @@ minReplicas: 1
 maxReplicas: 100
 targetCPUUtilizationPercentage: 80
 targetMemoryUtilizationPercentage: 80
+```
 
 Este archivo es actualizado por GitHub Actions cada vez que se hace push a la rama develop
 

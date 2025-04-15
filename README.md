@@ -202,13 +202,13 @@ az account set --subscription "<TuSuscripción>"
 
 ## Paso 2: Crear un grupo de recursos
 
-az group create --name <NombreGrupodeRecuso> --location eastus
+az group create --name "<NombreGrupodeRecuso>" --location eastus
 
 ## Paso 3: Crear un clúster de AKS (bajo costo)
 
 az aks create \
- --resource-group <NombreGrupodeRecuso> \
- --name <NombreAKS> \
+ --resource-group "<NombreGrupodeRecuso>" \
+ --name "<NombreAKS>" \
  --node-count 1 \
  --node-vm-size Standard_B2s \
  --enable-managed-identity \
@@ -217,7 +217,7 @@ az aks create \
 
 ## Paso 4: Conectarse al clúster
 
-az group create --name <NombreGrupodeRecuso> --location eastus
+az group create --name "<NombreGrupodeRecuso>" --location eastus
 
 ## Paso 5: Verificar el estado del clúster
 
@@ -336,11 +336,82 @@ el valor del password decodificarlo en base64
 
 Crear Archivo: .github/workflows/deploy.yml
 
-## Secretos requeridos en GitHub:
+## Paso 16: Secretos requeridos en GitHub
 
 GH_PAT Token personal con permiso push
 DOCKER_USERNAME Usuario Docker Hub
 DOCKER_PASSWORD Token o contraseña de Docker Hub
+
+## Paso 17 Crear el Chart
+
+Desde la raíz del proyecto o carpeta del microservicio:
+
+```bash
+helm create helm
+```
+
+Esto genera la siguiente estructura
+helm/
+├── charts/
+├── templates/
+│ ├── deployment.yaml
+│ ├── service.yaml
+│ ├── ingress.yaml
+│ ├── hpa.yaml
+│ ├── serviceaccount.yaml
+│ ├── tests/
+├── Chart.yaml
+├── values.yaml
+
+## Paso 18 Editar el Chart.yaml
+
+apiVersion: v2
+name: helm
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+
+## Paso 19 Configurar values.yaml
+
+replicaCount: 2
+
+image:
+repository: # valores de usuarioImagen/nombreImagen
+pullPolicy: Always
+tag: latest # Este valor es actualizado automáticamente por GitHub Actions
+
+service:
+type: ClusterIP
+port: 80
+
+containerPort: 3000
+
+resources:
+requests:
+cpu: 100m
+memory: 128Mi
+limits:
+cpu: 200m
+memory: 256Mi
+
+ingress:
+enabled: false
+className: ''
+annotations: {}
+hosts: - host: chart-example.local
+paths: - path: /
+pathType: ImplementationSpecific
+tls: []
+
+autoscaling:
+enabled: false
+minReplicas: 1
+maxReplicas: 100
+targetCPUUtilizationPercentage: 80
+targetMemoryUtilizationPercentage: 80
+
+Este archivo es actualizado por GitHub Actions cada vez que se hace push a la rama develop
 
 ## Resultado final
 

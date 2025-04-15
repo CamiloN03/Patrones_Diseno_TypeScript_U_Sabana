@@ -350,7 +350,7 @@ GH_PAT Token personal con permiso push
 DOCKER_USERNAME Usuario Docker Hub
 DOCKER_PASSWORD Token o contraseña de Docker Hub
 
-## Paso 17 Crear el Chart
+## Paso 17: Crear el Chart
 
 Desde la raíz del proyecto o carpeta del microservicio:
 
@@ -374,7 +374,7 @@ helm/
 ├── values.yaml
 ```
 
-## Paso 18 Editar el Chart.yaml
+## Paso 18: Editar el Chart.yaml
 
 apiVersion: v2
 name: helm
@@ -383,7 +383,7 @@ type: application
 version: 0.1.0
 appVersion: "1.16.0"
 
-## Paso 19 Configurar values.yaml
+## Paso 19: Configurar values.yaml
 
 ```
 replicaCount: 2

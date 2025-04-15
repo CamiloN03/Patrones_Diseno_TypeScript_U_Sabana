@@ -436,8 +436,8 @@ ArgoCD desplegando desde Git
 CI/CD conectado con GitHub Actions
 Push a develop = Deploy automático en AKS
 
-URL MicroServicio: https://microservicio.51.8.47.204.nip.io/health
-URL Argo: https://argocd.51.8.47.204.nip.io
+- URL MicroServicio: https://microservicio.51.8.47.204.nip.io/health
+- URL Argo: https://argocd.51.8.47.204.nip.io
 
 ## 🧑‍💻 Autores
 

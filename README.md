@@ -372,9 +372,9 @@ Crear Archivo: .github/workflows/deploy.yml
 
 ## Paso 16: Secretos requeridos en GitHub
 
-GH_PAT Token personal con permiso push
-DOCKER_USERNAME Usuario Docker Hub
-DOCKER_PASSWORD Token o contraseña de Docker Hub
+- GH_PAT Token personal con permiso push
+- DOCKER_USERNAME Usuario Docker Hub
+- DOCKER_PASSWORD Token o contraseña de Docker Hub
 
 ## Paso 17: Crear el Chart
 

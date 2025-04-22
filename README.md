@@ -198,11 +198,15 @@ Tecnologías utilizadas:
 
 ## Paso 1: Seleccionar la suscripción de Azure
 
+```
 az account set --subscription "<TuSuscripción>"
+```
 
 ## Paso 2: Crear un grupo de recursos
 
+```
 az group create --name "<NombreGrupodeRecuso>" --location eastus
+```
 
 ## Paso 3: Crear un clúster de AKS (bajo costo)
 
@@ -219,30 +223,42 @@ az aks create \
 
 ## Paso 4: Conectarse al clúster
 
+```
 az group create --name "<NombreGrupodeRecuso>" --location eastus
+```
 
 ## Paso 5: Verificar el estado del clúster
 
+```
 kubectl get nodes
+```
 
 ## Paso 6: Instalar Ingress NGINX
 
+```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/cloud/deploy.yaml
+```
 
 ## Paso 7: Verificar los pods de Ingress
 
+```
 kubectl get pods -n ingress-nginx
+```
 
 ## Paso 8: Obtener la IP pública del Ingress
 
+```
 kubectl get svc ingress-nginx-controller -n ingress-nginx
+```
 
 - ✅ Importante: esa IP se usará en los hostnames .nip.io y en los archivos de Ingress y ArgoCD.
 
 ## Paso 9: Instalar Cert-Manager para certificados SSL
 
+```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.2/cert-manager.yaml
 kubectl get pods -n cert-manager
+```
 
 ## Paso 10: Crear archivo cluster-issuer.yaml
 
@@ -262,8 +278,10 @@ ingress:
 class: nginx
 ```
 
+```
 kubectl apply -f cluster-issuer.yaml
 kubectl get clusterissuer
+```
 
 ## Paso 11: Crear archivo ingress-microservicio.yaml
 
@@ -295,15 +313,19 @@ tls:
     number: 80
 ```
 
+```
 kubectl apply -f ingress-microservicio.yaml
 kubectl get ingress
 kubectl describe certificate microservicio-tls
+```
 
 ## Paso 12: Instalar ArgoCD
 
+```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl get pods -n argocd
+```
 
 ## Paso 13: Crear archivo argocd-ingress.yaml
 
@@ -332,11 +354,15 @@ rules:
     number: 443
 ```
 
+```
 kubectl apply -f argocd-ingress.yaml
+```
 
 ## Paso 14: Obtener contraseña de ArgoCD
 
+```
 kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
+```
 
 el valor del password decodificarlo en base64
 
@@ -438,7 +464,7 @@ Push a develop = Deploy automático en AKS
 
 - URL MicroServicio: https://microservicio.51.8.47.204.nip.io/health
 - URL Argo: https://argocd.51.8.47.204.nip.io
-- ![Video_Explicando_Taller_2](assets/video/GitOps_Taller2_Diplomado_Arquitectura_Software.zip)
+- Url Video: ![Video_Explicando_Taller_2](assets/video/GitOps_Taller2_Diplomado_Arquitectura_Software.zip)
 
 ## 🧑‍💻 Autores
 

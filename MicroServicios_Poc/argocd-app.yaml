@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: microservice-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/CamiloN03/Patrones_Diseno_TypeScript_U_Sabana'
+    targetRevision: develop
+    path: MicroServicios_Poc/helm
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

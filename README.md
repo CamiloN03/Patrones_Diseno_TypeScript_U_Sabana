@@ -438,6 +438,7 @@ Push a develop = Deploy automático en AKS
 
 - URL MicroServicio: https://microservicio.51.8.47.204.nip.io/health
 - URL Argo: https://argocd.51.8.47.204.nip.io
+- ![Video_Explicando_Taller_2](assets/video/GitOps_Taller2_Diplomado_Arquitectura_Software.zip)
 
 ## 🧑‍💻 Autores
 
